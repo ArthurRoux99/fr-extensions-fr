@@ -2,7 +2,7 @@
 
 French-language manga, manhwa, and light novel source extensions for [Tachimanga](https://tachimanga.app) / Mihon / Tachiyomi.
 
-This is a **pruned fork** of `keiyoushi/extensions-source`, keeping only French sources (no NSFW/hentai/porn). It contains **22 sources** across **7 lib-multisrc themes**.
+This is a **pruned fork** of `keiyoushi/extensions-source`, keeping only French sources (no NSFW/hentai/porn). It contains **30 sources** across **9 lib-multisrc themes**.
 
 ## Sources
 
@@ -31,6 +31,14 @@ This is a **pruned fork** of `keiyoushi/extensions-source`, keeping only French 
 | Sushi-Scan | fr.sushiscan | mangathemesia |
 | Scan Reader | fr.scanreader | scanreader |
 | X-Manga | fr.scanhentaimenu | madara |
+| Astral-Manga | fr.astralmanga | (standalone) |
+| Blossom Scans | fr.blossomscans | (standalone) |
+| Dassou Scan | fr.dassouscan | (standalone) |
+| Harmony-Scan | fr.bananascan | madara |
+| Rimu Scans | fr.rimuscans | (standalone) |
+| Siren Scans FR | fr.sirenscansfr | keyoapp |
+| Soft Epsilon Scan | fr.softepsilonscan | pam |
+| Twatt | fr.twatt | (standalone) |
 
 ### Light Novel FR
 | Source | Package suffix | Theme |
@@ -55,7 +63,7 @@ Japscan reads pages through an Android WebView, so it doesn't work on Tachimanga
 
 ## Build & Index
 
-CI (`.github/workflows/build_push.yml`) builds all 22 sources via GitHub Actions (Java 25) and publishes to the `mirror` branch: `index.min.json` + `repo.json` + `apk/` + `icon/` (Tachimanga / Mihon) and `index.json`/`index.pb`.
+CI (`.github/workflows/build_push.yml`) builds all 30 sources via GitHub Actions (Java 25) and publishes to the `mirror` branch: `index.min.json` + `repo.json` + `apk/` + `icon/` (Tachimanga / Mihon) and `index.json`/`index.pb`.
 
 Release signing uses the `SIGNING_KEY` (base64 keystore), `ALIAS`, `KEY_STORE_PASSWORD` and `KEY_PASSWORD` secrets. Without them, APKs are signed with a throwaway debug key that changes on every run, so installed extensions can't be updated. To create a key:
 
