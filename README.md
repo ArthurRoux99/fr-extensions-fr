@@ -44,10 +44,14 @@ This is a **pruned fork** of `keiyoushi/extensions-source`, keeping only French 
 
 Add this repo in Tachimanga using the extension index URL:
 ```
-https://raw.githubusercontent.com/ArthurRoux99/fr-extensions-fr/mirror/index.min.json
+https://raw.githubusercontent.com/ArthurRoux99/fr-extensions-fr/mirror/index.pb
 ```
 
 In the app: `Browser` → `Extensions` → `+` → paste the URL above.
+
+Use `index.pb`, not `index.min.json`: with `index.pb` Tachimanga installs the JVM `.jar` builds, while `index.min.json` makes it convert the Android APKs, which fails with `java.lang.VerifyError`.
+
+Japscan reads pages through an Android WebView, so it doesn't work on Tachimanga (iOS).
 
 ## Build & Index
 
