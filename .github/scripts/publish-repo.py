@@ -3,6 +3,8 @@ import hashlib
 import html
 import json
 import math
+import os
+import shutil
 import sys
 import time
 from pathlib import Path
@@ -193,14 +195,15 @@ final_extensions.extend(
 final_extensions.extend(ext for ext, _, _, _, _ in new_extensions)
 final_extensions.sort(key=lambda ext: ext.packageName)
 
+REPO_DISPLAY_NAME = "FR Extensions"
+REPO_WEBSITE = f"https://github.com/{REPO_NAME}"
+signing_fingerprint = os.environ.get("SIGNING_FINGERPRINT", "")
+
 index = index_pb2.Index(
-    name="Keiyoushi",
-    badgeLabel="KEI",
-    signingKey="9add655a78e96c4ec7a53ef89dccb557cb5d767489fac5e785d671a5a75d4da2",
-    contact=index_pb2.Contact(
-        website="https://keiyoushi.github.io",
-        discord="https://discord.gg/3FbCpdKbdY",
-    ),
+    name=REPO_DISPLAY_NAME,
+    badgeLabel="FR",
+    signingKey=signing_fingerprint,
+    contact=index_pb2.Contact(website=REPO_WEBSITE),
     extensionList=index_pb2.ExtensionList(extensions=final_extensions),
 )
 
@@ -229,6 +232,68 @@ with REPO_DIR.joinpath("index.html").open("w", encoding="utf-8") as f:
         name_escaped = html.escape(f"Tachiyomi: {ext.name}")
         f.write(f'<a href="{apk_escaped}">{name_escaped}</a>\n')
     f.write("</pre>\n</body>\n</html>\n")
+
+# --- Legacy repo layout (index.min.json + apk/ + icon/), read by Tachimanga and older Mihon ---
+apk_dir = REPO_DIR / "apk"
+icon_dir = REPO_DIR / "icon"
+apk_dir.mkdir(exist_ok=True)
+icon_dir.mkdir(exist_ok=True)
+
+for _, apk, _, _, _ in new_extensions:
+    shutil.copy2(apk, apk_dir / apk.name)
+
+legacy_index = []
+for ext in final_extensions:
+    apk_name = ext.resources.apkUrl.rsplit("/", 1)[-1]
+    icon_src = SOURCE_DIR / ext.resources.iconUrl.removeprefix(f"{ICON_BASE_URL}/")
+    shutil.copy2(icon_src, icon_dir / f"{ext.packageName}.png")
+    legacy_index.append(
+        {
+            "name": f"Tachiyomi: {ext.name}",
+            "pkg": ext.packageName,
+            "apk": apk_name,
+            "lang": ext.sources[0].language if len({s.language for s in ext.sources}) == 1 else "all",
+            "code": ext.versionCode,
+            "version": ext.versionName,
+            "nsfw": 1 if ext.contentWarning == index_pb2.CONTENT_WARNING_NSFW else 0,
+            "sources": [
+                {
+                    "name": source.name,
+                    "lang": source.language,
+                    "id": str(source.id),
+                    "baseUrl": source.homeUrl,
+                }
+                for source in ext.sources
+            ],
+        }
+    )
+
+referenced_apks = {entry["apk"] for entry in legacy_index}
+for stale in apk_dir.glob("*.apk"):
+    if stale.name not in referenced_apks:
+        stale.unlink()
+referenced_icons = {f"{entry['pkg']}.png" for entry in legacy_index}
+for stale in icon_dir.glob("*.png"):
+    if stale.name not in referenced_icons:
+        stale.unlink()
+
+with REPO_DIR.joinpath("index.min.json").open("w", encoding="utf-8") as f:
+    json.dump(legacy_index, f, ensure_ascii=False, separators=(",", ":"))
+
+with REPO_DIR.joinpath("repo.json").open("w", encoding="utf-8") as f:
+    json.dump(
+        {
+            "meta": {
+                "name": REPO_DISPLAY_NAME,
+                "shortName": "FR",
+                "website": REPO_WEBSITE,
+                "signingKeyFingerprint": signing_fingerprint,
+            }
+        },
+        f,
+        indent=2,
+    )
+    f.write("\n")
 
 # --- Upload assets as release ---
 if not changed_extensions:
@@ -260,7 +325,7 @@ def create_release(tag: str):
         "--title",
         f"Repository Update {tag}",
         "--notes",
-        f"Automated update from keiyoushi/extensions-source@{current_sha}",
+        f"Automated update from {REPO_NAME}@{current_sha}",
     )
 
 

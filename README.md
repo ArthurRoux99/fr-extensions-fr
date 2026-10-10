@@ -44,14 +44,21 @@ This is a **pruned fork** of `keiyoushi/extensions-source`, keeping only French 
 
 Add this repo in Tachimanga using the extension index URL:
 ```
-https://raw.githubusercontent.com/ArthurRoux99/fr-extensions-fr/main/mirror/index.min.json
+https://raw.githubusercontent.com/ArthurRoux99/fr-extensions-fr/mirror/index.min.json
 ```
 
 In the app: `Browser` → `Extensions` → `+` → paste the URL above.
 
 ## Build & Index
 
-CI (`.github/workflows/build_push.yml`) builds all 22 sources via GitHub Actions (Java 25) and publishes APKs + `index.json`/`index.pb` to the `mirror` branch. Release signing uses your `SIGNING_KEY` secret if present; otherwise APKs are debug-signed.
+CI (`.github/workflows/build_push.yml`) builds all 22 sources via GitHub Actions (Java 25) and publishes to the `mirror` branch: `index.min.json` + `repo.json` + `apk/` + `icon/` (Tachimanga / Mihon) and `index.json`/`index.pb`.
+
+Release signing uses the `SIGNING_KEY` (base64 keystore), `ALIAS`, `KEY_STORE_PASSWORD` and `KEY_PASSWORD` secrets. Without them, APKs are signed with a throwaway debug key that changes on every run, so installed extensions can't be updated. To create a key:
+
+```bash
+keytool -genkeypair -v -keystore signingkey.jks -alias fr-ext -keyalg RSA -keysize 4096 -validity 36500
+base64 -w0 signingkey.jks   # paste as the SIGNING_KEY secret
+```
 
 ## Contributing
 

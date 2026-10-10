@@ -136,12 +136,13 @@ jobs:
           cache-read-only: true
 
       - name: Prepare signing key
+        env:
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
         run: |
-          if [ -n "${{ secrets.SIGNING_KEY }}" ]; then
-            echo "${{ secrets.SIGNING_KEY }}" | base64 -d > signingkey.jks
+          if [ -n "$SIGNING_KEY" ]; then
+            echo "$SIGNING_KEY" | base64 -d > signingkey.jks
           else
-            echo "No SIGNING_KEY secret; release APKs will be debug-signed (still installable)."
-            touch signingkey.jks.empty
+            echo "::warning::No SIGNING_KEY secret: APKs are signed with this runner's throwaway debug key, so updates of already-installed extensions will fail."
           fi
 
       - name: Build extensions (${{ matrix.chunk.number }})
@@ -169,7 +170,7 @@ jobs:
 
       - name: Clean up CI files
         if: always()
-        run: rm signingkey.jks
+        run: rm -f signingkey.jks
 
   publish:
     name: Publish extension repo
@@ -180,9 +181,11 @@ jobs:
       needs.prepare.result == 'success' &&
       needs.build-extensions.result != 'failure' &&
       needs.build-extensions.result != 'cancelled' &&
-      needs.prepare.outputs.delete != '[]'
+      (needs.build-extensions.result == 'success' || needs.prepare.outputs.delete != '[]')
     runs-on: ubuntu-latest
     timeout-minutes: 120
+    permissions:
+      contents: write
     steps:
       - name: Download APK artifacts
         if: needs.build-extensions.result == 'success'
@@ -209,27 +212,30 @@ jobs:
         env:
           DELETE: ${{ needs.prepare.outputs.delete }}
           FULL_REBUILD: ${{ needs.prepare.outputs.full_rebuild }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
           REPO_NAME: ${{ github.repository }}
         run: |
-          if [ ! -d repo/.git ]; then
+          apk=$(find ~/apk-artifacts -name '*.apk' -print -quit)
+          if [ -n "$apk" ]; then
+            apksigner=$(ls -d "$ANDROID_HOME"/build-tools/*/ | sort -V | tail -n 1)apksigner
+            SIGNING_FINGERPRINT=$("$apksigner" verify --print-certs "$apk" | sed -n 's/.*SHA-256 digest: //p' | head -n 1)
+            export SIGNING_FINGERPRINT
+          fi
+          if [ ! -d repo/.git ] || ! git -C repo rev-parse --verify -q HEAD >/dev/null; then
+            # First publish: the mirror branch doesn't exist yet
             rm -rf repo
-            git clone --no-checkout --filter=blob:none --branch main "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" repo
-            cd repo
-            git checkout --orphan mirror
-            git rm -rf . 2>/dev/null
-            cd ..
+            git init -q -b mirror repo
           fi
           cd repo
           pip install protobuf
-          python -u ../main/.github/scripts/publish-repo.py "$DELETE" "$GITHUB_SHA" "$FULL_REBUILD"
-          git config user.email "dev@users.noreply.github.com"
-          git config user.name "fr-extensions-bot"
+          python -u ../.github/scripts/publish-repo.py "$DELETE" "$GITHUB_SHA" "$FULL_REBUILD"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
           git status
           if [ -n "$(git status --porcelain)" ]; then
             git add .
             git commit -m "Update extensions repo"
-            git push --force origin HEAD:mirror
+            git push "https://x-access-token:${GH_TOKEN}@github.com/${REPO_NAME}.git" HEAD:mirror
           else
             echo "No changes to commit"
           fi
