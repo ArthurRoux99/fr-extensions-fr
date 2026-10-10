@@ -29,6 +29,48 @@
         ]
       },
       {
+        "name": "Astral-Manga",
+        "packageName": "eu.kanade.tachiyomi.extension.fr.astralmanga",
+        "resources": {
+          "apkUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.astralmanga-v1.6.0.apk",
+          "iconUrl": "https://cdn.jsdelivr.net/gh/ArthurRoux99/fr-extensions-fr@main/src/fr/astralmanga/res/mipmap-xhdpi/ic_launcher.png",
+          "jarUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.astralmanga-v1.6.0.jar"
+        },
+        "extensionLib": "1.6",
+        "versionCode": "106000",
+        "versionName": "1.6.0",
+        "contentWarning": "CONTENT_WARNING_SAFE",
+        "sources": [
+          {
+            "id": "8815089098147858609",
+            "name": "AstralManga",
+            "language": "fr",
+            "homeUrl": "https://astral-manga.fr"
+          }
+        ]
+      },
+      {
+        "name": "Harmony-Scan",
+        "packageName": "eu.kanade.tachiyomi.extension.fr.bananascan",
+        "resources": {
+          "apkUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.bananascan-v1.6.56.apk",
+          "iconUrl": "https://cdn.jsdelivr.net/gh/ArthurRoux99/fr-extensions-fr@main/src/fr/bananascan/res/mipmap-xhdpi/ic_launcher.png",
+          "jarUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.bananascan-v1.6.56.jar"
+        },
+        "extensionLib": "1.6",
+        "versionCode": "106056",
+        "versionName": "1.6.56",
+        "contentWarning": "CONTENT_WARNING_MIXED",
+        "sources": [
+          {
+            "id": "3121632933690925888",
+            "name": "Harmony-Scan",
+            "language": "fr",
+            "homeUrl": "https://harmony-scan.fr"
+          }
+        ]
+      },
+      {
         "name": "Banchan Scan",
         "packageName": "eu.kanade.tachiyomi.extension.fr.banchanscan",
         "resources": {
@@ -46,6 +88,48 @@
             "name": "Banchan Scan",
             "language": "fr",
             "homeUrl": "https://banchanscan.fr"
+          }
+        ]
+      },
+      {
+        "name": "Blossom Scans",
+        "packageName": "eu.kanade.tachiyomi.extension.fr.blossomscans",
+        "resources": {
+          "apkUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.blossomscans-v1.6.1.apk",
+          "iconUrl": "https://cdn.jsdelivr.net/gh/ArthurRoux99/fr-extensions-fr@main/src/fr/blossomscans/res/mipmap-xhdpi/ic_launcher.png",
+          "jarUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.blossomscans-v1.6.1.jar"
+        },
+        "extensionLib": "1.6",
+        "versionCode": "106001",
+        "versionName": "1.6.1",
+        "contentWarning": "CONTENT_WARNING_SAFE",
+        "sources": [
+          {
+            "id": "5819845963401393451",
+            "name": "Blossom Scans",
+            "language": "fr",
+            "homeUrl": "https://blossom-scans.com"
+          }
+        ]
+      },
+      {
+        "name": "Dassou Scan",
+        "packageName": "eu.kanade.tachiyomi.extension.fr.dassouscan",
+        "resources": {
+          "apkUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.dassouscan-v1.6.1.apk",
+          "iconUrl": "https://cdn.jsdelivr.net/gh/ArthurRoux99/fr-extensions-fr@main/src/fr/dassouscan/res/mipmap-xhdpi/ic_launcher.png",
+          "jarUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.dassouscan-v1.6.1.jar"
+        },
+        "extensionLib": "1.6",
+        "versionCode": "106001",
+        "versionName": "1.6.1",
+        "contentWarning": "CONTENT_WARNING_SAFE",
+        "sources": [
+          {
+            "id": "7036720639283559699",
+            "name": "Dassou Scan",
+            "language": "fr",
+            "homeUrl": "https://dassouscan.com"
           }
         ]
       },
@@ -344,6 +428,27 @@
         ]
       },
       {
+        "name": "Rimu Scans",
+        "packageName": "eu.kanade.tachiyomi.extension.fr.rimuscans",
+        "resources": {
+          "apkUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.rimuscans-v1.6.0.apk",
+          "iconUrl": "https://cdn.jsdelivr.net/gh/ArthurRoux99/fr-extensions-fr@main/src/fr/rimuscans/res/mipmap-xhdpi/ic_launcher.png",
+          "jarUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.rimuscans-v1.6.0.jar"
+        },
+        "extensionLib": "1.6",
+        "versionCode": "106000",
+        "versionName": "1.6.0",
+        "contentWarning": "CONTENT_WARNING_SAFE",
+        "sources": [
+          {
+            "id": "203984087587807085",
+            "name": "Rimu Scans",
+            "language": "fr",
+            "homeUrl": "https://rimuscan.fr"
+          }
+        ]
+      },
+      {
         "name": "X-Manga",
         "packageName": "eu.kanade.tachiyomi.extension.fr.scanhentaimenu",
         "resources": {
@@ -428,6 +533,48 @@
         ]
       },
       {
+        "name": "Siren Scans FR",
+        "packageName": "eu.kanade.tachiyomi.extension.fr.sirenscansfr",
+        "resources": {
+          "apkUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.sirenscansfr-v1.6.22.apk",
+          "iconUrl": "https://cdn.jsdelivr.net/gh/ArthurRoux99/fr-extensions-fr@main/src/fr/sirenscansfr/res/mipmap-xhdpi/ic_launcher.png",
+          "jarUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.sirenscansfr-v1.6.22.jar"
+        },
+        "extensionLib": "1.6",
+        "versionCode": "106022",
+        "versionName": "1.6.22",
+        "contentWarning": "CONTENT_WARNING_SAFE",
+        "sources": [
+          {
+            "id": "9130638185861146476",
+            "name": "Siren Scans FR",
+            "language": "fr",
+            "homeUrl": "https://sirenscans.fr"
+          }
+        ]
+      },
+      {
+        "name": "Soft Epsilon Scan",
+        "packageName": "eu.kanade.tachiyomi.extension.fr.softepsilonscan",
+        "resources": {
+          "apkUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.softepsilonscan-v1.6.1.apk",
+          "iconUrl": "https://cdn.jsdelivr.net/gh/ArthurRoux99/fr-extensions-fr@main/src/fr/softepsilonscan/res/mipmap-xhdpi/ic_launcher.png",
+          "jarUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.softepsilonscan-v1.6.1.jar"
+        },
+        "extensionLib": "1.6",
+        "versionCode": "106001",
+        "versionName": "1.6.1",
+        "contentWarning": "CONTENT_WARNING_SAFE",
+        "sources": [
+          {
+            "id": "4969929389259348100",
+            "name": "Soft Epsilon Scan",
+            "language": "fr",
+            "homeUrl": "https://epsilonsoft.to"
+          }
+        ]
+      },
+      {
         "name": "Sushi-Scan",
         "packageName": "eu.kanade.tachiyomi.extension.fr.sushiscan",
         "resources": {
@@ -466,6 +613,27 @@
             "name": "Sushiscan.fr",
             "language": "fr",
             "homeUrl": "https://sushiscan.fr"
+          }
+        ]
+      },
+      {
+        "name": "Twatt",
+        "packageName": "eu.kanade.tachiyomi.extension.fr.twatt",
+        "resources": {
+          "apkUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.twatt-v1.6.1.apk",
+          "iconUrl": "https://cdn.jsdelivr.net/gh/ArthurRoux99/fr-extensions-fr@main/src/fr/twatt/res/mipmap-xhdpi/ic_launcher.png",
+          "jarUrl": "https://github.com/ArthurRoux99/fr-extensions-fr/releases/download/e4d8924/tachiyomi-fr.twatt-v1.6.1.jar"
+        },
+        "extensionLib": "1.6",
+        "versionCode": "106001",
+        "versionName": "1.6.1",
+        "contentWarning": "CONTENT_WARNING_SAFE",
+        "sources": [
+          {
+            "id": "5157242904926355900",
+            "name": "Twatt",
+            "language": "fr",
+            "homeUrl": "https://twatt.fr"
           }
         ]
       }

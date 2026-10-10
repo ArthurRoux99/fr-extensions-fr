@@ -9,6 +9,26 @@
       "sha256": "c76ca5640f4460ff7650e198950873022c36b8683982b5d6f8930606dc9675d2"
     }
   },
+  "eu.kanade.tachiyomi.extension.fr.astralmanga": {
+    "apk": {
+      "name": "tachiyomi-fr.astralmanga-v1.6.0.apk",
+      "sha256": "de0e8dbf20832993cddc9042383b4cb72acb331b67059dcc433ebf1fccee0570"
+    },
+    "jar": {
+      "name": "tachiyomi-fr.astralmanga-v1.6.0.jar",
+      "sha256": "c5a2cd59cf4631adee947412879174d0dd5773c8d1201bcca3d3f0fe0a82db14"
+    }
+  },
+  "eu.kanade.tachiyomi.extension.fr.bananascan": {
+    "apk": {
+      "name": "tachiyomi-fr.bananascan-v1.6.56.apk",
+      "sha256": "ba29f24ee2d07cfd25eb84a4812bfc82590589c560606711dfa2339ed0df79a8"
+    },
+    "jar": {
+      "name": "tachiyomi-fr.bananascan-v1.6.56.jar",
+      "sha256": "724f226c56d3aa18df8d92d6056d0eb3cf7ce2c816fd6aae778773eea39953a9"
+    }
+  },
   "eu.kanade.tachiyomi.extension.fr.banchanscan": {
     "apk": {
       "name": "tachiyomi-fr.banchanscan-v1.6.1.apk",
@@ -17,6 +37,26 @@
     "jar": {
       "name": "tachiyomi-fr.banchanscan-v1.6.1.jar",
       "sha256": "3d30b19d1b805894727533225fb3e278fe8ba3b36e5f2daacfb96a1deb8f1625"
+    }
+  },
+  "eu.kanade.tachiyomi.extension.fr.blossomscans": {
+    "apk": {
+      "name": "tachiyomi-fr.blossomscans-v1.6.1.apk",
+      "sha256": "28cf62ff8af0efba9ed67b7ef86fc1a517ad8774b2ef39a3d66fba2c4f5ceec3"
+    },
+    "jar": {
+      "name": "tachiyomi-fr.blossomscans-v1.6.1.jar",
+      "sha256": "263863f0719ad4c4f5de59c12aa4ac672dba895c35c82e3a3adbdee9a0d24d19"
+    }
+  },
+  "eu.kanade.tachiyomi.extension.fr.dassouscan": {
+    "apk": {
+      "name": "tachiyomi-fr.dassouscan-v1.6.1.apk",
+      "sha256": "d0351dffb072e0d7978301cec869e488cdc43210a2f7bd20f9d52e02b881a80f"
+    },
+    "jar": {
+      "name": "tachiyomi-fr.dassouscan-v1.6.1.jar",
+      "sha256": "96f27fe9e23042575d70e98389de0f0c8dfd37bfa03670c43a3fa44f5e704ac4"
     }
   },
   "eu.kanade.tachiyomi.extension.fr.hanabook": {
@@ -159,6 +199,16 @@
       "sha256": "8eb6872e2ad76d894e7087a85c4fb1b44667d1f8b2c9dc820376b88c55fc2bff"
     }
   },
+  "eu.kanade.tachiyomi.extension.fr.rimuscans": {
+    "apk": {
+      "name": "tachiyomi-fr.rimuscans-v1.6.0.apk",
+      "sha256": "d596d141c53d2edd8b550a65d21516df9e13b46e5600c3fb7790a920b7256d44"
+    },
+    "jar": {
+      "name": "tachiyomi-fr.rimuscans-v1.6.0.jar",
+      "sha256": "4e8f37a928addc3a47dd4d22e5643fd3fff6f23b5cd4ad397777c7677d9c8713"
+    }
+  },
   "eu.kanade.tachiyomi.extension.fr.scanhentaimenu": {
     "apk": {
       "name": "tachiyomi-fr.scanhentaimenu-v1.6.59.apk",
@@ -199,6 +249,26 @@
       "sha256": "deb082a7fc2c67e358a78a9bfdc8abd1262f052ce91b1c75c730d9b9fa169282"
     }
   },
+  "eu.kanade.tachiyomi.extension.fr.sirenscansfr": {
+    "apk": {
+      "name": "tachiyomi-fr.sirenscansfr-v1.6.22.apk",
+      "sha256": "b76f54c8ba88beba67d451a8674f58157dd9bf83c9cd3db2d57e4bc7f4889839"
+    },
+    "jar": {
+      "name": "tachiyomi-fr.sirenscansfr-v1.6.22.jar",
+      "sha256": "0ab24a326de404657219268650c58ae2f04f32abbc3d10e4ddb9cb71c2983282"
+    }
+  },
+  "eu.kanade.tachiyomi.extension.fr.softepsilonscan": {
+    "apk": {
+      "name": "tachiyomi-fr.softepsilonscan-v1.6.1.apk",
+      "sha256": "d971688544fa525a5c43a1b8d364b13412109e0c0f3ba411432fc181af046070"
+    },
+    "jar": {
+      "name": "tachiyomi-fr.softepsilonscan-v1.6.1.jar",
+      "sha256": "0bf5e3d08837db7a1bce785b8ffbef5384a156a190b962e13b399811cd7361ad"
+    }
+  },
   "eu.kanade.tachiyomi.extension.fr.sushiscan": {
     "apk": {
       "name": "tachiyomi-fr.sushiscan-v1.6.17.apk",
@@ -217,6 +287,16 @@
     "jar": {
       "name": "tachiyomi-fr.sushiscanfr-v1.6.3.jar",
       "sha256": "4ab118f1a8e13a2ced3ebd865a6d32dbf52b507430fd60dee485a2c003dfd59c"
+    }
+  },
+  "eu.kanade.tachiyomi.extension.fr.twatt": {
+    "apk": {
+      "name": "tachiyomi-fr.twatt-v1.6.1.apk",
+      "sha256": "38ffbc749458d890782f46af3694aef74d98a874d3a4892139b3189cdb03a62a"
+    },
+    "jar": {
+      "name": "tachiyomi-fr.twatt-v1.6.1.jar",
+      "sha256": "b15f0c3478b02ad0fb211330c3c697ee693317fb0d20503dee9ea6684a81de23"
     }
   }
 }
